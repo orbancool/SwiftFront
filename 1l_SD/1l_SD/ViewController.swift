@@ -51,7 +51,6 @@ class ViewController: UIViewController {
             return
         }
         print("login: \(log)\npassword: \(pass)")
-
     }
 }
 
