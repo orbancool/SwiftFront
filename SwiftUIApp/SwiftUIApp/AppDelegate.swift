@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  1l_SD
+//  2l_SD
 //
-//  Created by Irina Semenova on 25/11/2019.
+//  Created by Irina Semenova on 27/11/2019.
 //  Copyright © 2019 Denis Semenov. All rights reserved.
 //
 
@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UITabBar.appearance().unselectedItemTintColor = .white
         // Override point for customization after application launch.
         return true
     }
