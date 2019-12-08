@@ -13,18 +13,13 @@ import UIKit
 class User {
     var name: String
     var secondName: String
-    var avatar: UIImage?
-    var photo: UIImageView?
+    var avatar: String
+
     
-    init(name: String, secondName: String, avatar: UIImage) {
+    init(name: String, secondName: String, avatar: String) {
         self.name = name
         self.secondName = secondName
         self.avatar = avatar
     }
-    
-    init(name: String, secondName: String, photo: UIImageView) {
-        self.name = name
-        self.secondName = secondName
-        self.photo = photo
-    }
+
 }

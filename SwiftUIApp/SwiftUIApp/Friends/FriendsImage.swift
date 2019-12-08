@@ -12,7 +12,5 @@ class FriendsImage: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
-        //layer.cornerRadius = 10
-        //self.titleEdgeInsets = .init(top: 5, left: 5, bottom: 5, right: 5)
     }
 }

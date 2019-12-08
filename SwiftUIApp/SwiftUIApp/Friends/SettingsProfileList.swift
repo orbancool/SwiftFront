@@ -36,5 +36,6 @@ class SettingsProfileList: UITableViewCell {
         //self.selectedBackgroundView = bgColorView
         
     }
+    
 
 }
