@@ -1,4 +1,3 @@
-
 import UIKit
 
 @IBDesignable class InfoShadowView: UIView {
@@ -15,7 +14,6 @@ import UIKit
     }
     @IBInspectable var shadowColor: UIColor? {
         didSet {
-            //layer.shadowColor = newValue?.CGColor
             setNeedsDisplay()
         }
     }

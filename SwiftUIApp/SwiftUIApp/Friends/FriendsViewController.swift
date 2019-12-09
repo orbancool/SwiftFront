@@ -16,8 +16,6 @@ var friendsList: [User] = [User(name: "Denis", secondName: "Semenov", avatar: "m
                            User(name: "Mary", secondName: "Sidorova", avatar: "cat")
 ]
 
-
-
 class FriendsViewController: UITableViewController {
     
     var friendsSection = [Section<User>]()
@@ -30,8 +28,6 @@ class FriendsViewController: UITableViewController {
         
         friendsSection = friendsDictionary.map{Section(title: String($0.key), items: $0.value)}
         friendsSection.sort{ $0.title < $1.title }
-        //print(friendsSection.count)
-        print(friendsSection[0].items)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +50,8 @@ class FriendsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete){
-            friendsList.remove(at: indexPath.item)
+            friendsSection[indexPath.section].items.remove(at: indexPath.row)
+            //friendsList.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

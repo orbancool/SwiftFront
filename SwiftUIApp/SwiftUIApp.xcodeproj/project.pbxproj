@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1338242C239D74E4000719A7 /* CircleShadowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338242B239D74E4000719A7 /* CircleShadowImage.swift */; };
+		134CA3CA239ED65600939479 /* UILikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134CA3C9239ED65600939479 /* UILikeButton.swift */; };
 		135225A32395BA0E007EE94F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135225A22395BA0E007EE94F /* User.swift */; };
 		13B27BD2239D356D004F3455 /* InfoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B27BD1239D356D004F3455 /* InfoImageView.swift */; };
 		13B27BD4239D402F004F3455 /* InfoShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B27BD3239D402F004F3455 /* InfoShadowView.swift */; };
@@ -16,7 +17,7 @@
 		13B49A332394410800C74AC4 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B49A322394410800C74AC4 /* FriendsCell.swift */; };
 		13B49A352394443400C74AC4 /* FriendsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B49A342394443400C74AC4 /* FriendsImage.swift */; };
 		13B49A3723944C2600C74AC4 /* SettingsProfileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B49A3623944C2600C74AC4 /* SettingsProfileList.swift */; };
-		13B49A3D2394608100C74AC4 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B49A3C2394608100C74AC4 /* PhotoList.swift */; };
+		13B49A3D2394608100C74AC4 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B49A3C2394608100C74AC4 /* PhotoController.swift */; };
 		13F02A44238F181500A16BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F02A43238F181500A16BF6 /* AppDelegate.swift */; };
 		13F02A46238F181500A16BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F02A45238F181500A16BF6 /* ViewController.swift */; };
 		13F02A49238F181500A16BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F02A47238F181500A16BF6 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1338242B239D74E4000719A7 /* CircleShadowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadowImage.swift; sourceTree = "<group>"; };
+		134CA3C9239ED65600939479 /* UILikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILikeButton.swift; sourceTree = "<group>"; };
 		135225A22395BA0E007EE94F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		13B27BD1239D356D004F3455 /* InfoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoImageView.swift; sourceTree = "<group>"; };
 		13B27BD3239D402F004F3455 /* InfoShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoShadowView.swift; sourceTree = "<group>"; };
@@ -34,7 +36,7 @@
 		13B49A322394410800C74AC4 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		13B49A342394443400C74AC4 /* FriendsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsImage.swift; sourceTree = "<group>"; };
 		13B49A3623944C2600C74AC4 /* SettingsProfileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileList.swift; sourceTree = "<group>"; };
-		13B49A3C2394608100C74AC4 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
+		13B49A3C2394608100C74AC4 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		13F02A40238F181500A16BF6 /* SwiftUIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F02A43238F181500A16BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13F02A45238F181500A16BF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				135225A22395BA0E007EE94F /* User.swift */,
+				134CA3C9239ED65600939479 /* UILikeButton.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -66,7 +69,7 @@
 		13B27BCD239D34DF004F3455 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				13B49A3C2394608100C74AC4 /* PhotoList.swift */,
+				13B49A3C2394608100C74AC4 /* PhotoController.swift */,
 				13B49A3623944C2600C74AC4 /* SettingsProfileList.swift */,
 				13B49A342394443400C74AC4 /* FriendsImage.swift */,
 				13B49A3023943C4D00C74AC4 /* FriendsViewController.swift */,
@@ -203,11 +206,12 @@
 				13F02A46238F181500A16BF6 /* ViewController.swift in Sources */,
 				13F02A44238F181500A16BF6 /* AppDelegate.swift in Sources */,
 				13B49A352394443400C74AC4 /* FriendsImage.swift in Sources */,
-				13B49A3D2394608100C74AC4 /* PhotoList.swift in Sources */,
+				13B49A3D2394608100C74AC4 /* PhotoController.swift in Sources */,
 				135225A32395BA0E007EE94F /* User.swift in Sources */,
 				13B49A3123943C4D00C74AC4 /* FriendsViewController.swift in Sources */,
 				13B49A3723944C2600C74AC4 /* SettingsProfileList.swift in Sources */,
 				13B27BD2239D356D004F3455 /* InfoImageView.swift in Sources */,
+				134CA3CA239ED65600939479 /* UILikeButton.swift in Sources */,
 				13B49A332394410800C74AC4 /* FriendsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

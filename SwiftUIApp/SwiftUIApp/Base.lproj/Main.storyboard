@@ -557,43 +557,43 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="EpP-ZO-l7z">
-                            <size key="itemSize" width="184" height="127"/>
+                            <size key="itemSize" width="198" height="127"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ident" id="Zo8-kL-WIk" customClass="PhotoCell" customModule="SwiftUIApp" customModuleProvider="target">
-                                <rect key="frame" x="5" y="5" width="184" height="127"/>
+                                <rect key="frame" x="5" y="5" width="198" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="184" height="127"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="198" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="copy2" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-AT-KEC">
-                                            <rect key="frame" x="0.0" y="0.0" width="184" height="127"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="copy2" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-AT-KEC">
+                                            <rect key="frame" x="0.0" y="0.0" width="198" height="127"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-lJ-baG">
-                                            <rect key="frame" x="148" y="90" width="40" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="fmd-QN-mJf"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <state key="normal" title="1" image="love"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NX5-V1-GWS" customClass="UILikeButton" customModule="SwiftUIApp">
+                                            <rect key="frame" x="130" y="95" width="68" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                         </button>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="aaM-lJ-baG" secondAttribute="trailing" constant="-12" id="2Vq-QP-QLf"/>
+                                    <constraint firstItem="NX5-V1-GWS" firstAttribute="top" secondItem="Zo8-kL-WIk" secondAttribute="top" constant="95" id="1BO-JE-lDh"/>
+                                    <constraint firstAttribute="bottom" secondItem="NX5-V1-GWS" secondAttribute="bottom" id="F41-MA-5T3"/>
                                     <constraint firstAttribute="trailing" secondItem="Tgr-AT-KEC" secondAttribute="trailing" id="IKy-98-2wJ"/>
-                                    <constraint firstItem="aaM-lJ-baG" firstAttribute="top" secondItem="Zo8-kL-WIk" secondAttribute="top" constant="90" id="QtY-Hm-SYO"/>
                                     <constraint firstAttribute="bottom" secondItem="Tgr-AT-KEC" secondAttribute="bottom" id="SHL-Hd-T8p"/>
+                                    <constraint firstAttribute="trailing" secondItem="NX5-V1-GWS" secondAttribute="trailing" id="b6H-9X-4pu"/>
                                     <constraint firstItem="Tgr-AT-KEC" firstAttribute="top" secondItem="Zo8-kL-WIk" secondAttribute="top" id="sMa-C8-0N8"/>
-                                    <constraint firstAttribute="bottom" secondItem="aaM-lJ-baG" secondAttribute="bottom" constant="13" id="u0o-j3-Jn4"/>
+                                    <constraint firstItem="NX5-V1-GWS" firstAttribute="leading" secondItem="Zo8-kL-WIk" secondAttribute="leading" constant="130" id="xE4-D9-d1z"/>
                                     <constraint firstItem="Tgr-AT-KEC" firstAttribute="leading" secondItem="Zo8-kL-WIk" secondAttribute="leading" id="zSh-Cm-2mf"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="loveButton" destination="aaM-lJ-baG" id="r2q-Jf-CPP"/>
+                                    <outlet property="loveButton" destination="NX5-V1-GWS" id="TKj-Vr-hPz"/>
                                     <outlet property="photo" destination="Tgr-AT-KEC" id="oIi-Ds-QeE"/>
                                 </connections>
                             </collectionViewCell>
@@ -711,7 +711,6 @@
         <image name="cat" width="564" height="564"/>
         <image name="copy2" width="1920" height="1080"/>
         <image name="info" width="32" height="32"/>
-        <image name="love" width="24" height="24"/>
         <image name="msg" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

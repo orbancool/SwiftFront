@@ -1,17 +1,8 @@
-//
-//  ViewController.swift
-//  2l_SD
-//
-//  Created by Irina Semenova on 27/11/2019.
-//  Copyright © 2019 Denis Semenov. All rights reserved.
-//
-
 import UIKit
 
 class RoundButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
-        //layer.cornerRadius = bounds.height / 2 * 0.5
         layer.cornerRadius = 10
         self.titleEdgeInsets = .init(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -44,9 +35,6 @@ class ViewController: UIViewController {
         
         login.delegate = self
         password.delegate = self
-        
-        
-        
         textFieldBorderStyle(field: login, mask: [.layerMaxXMinYCorner, .layerMinXMinYCorner])
         textFieldBorderStyle(field: password, mask: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
         let hideAction = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -65,7 +53,6 @@ class ViewController: UIViewController {
         
         if login.text == userLogin && password.text == userPassword {
             performSegue(withIdentifier: "user", sender: sender)
-            //print("login: \(userLogin), passowrd: \(userPassword)")
             return
         } else {
             vibrateEnter()
@@ -85,7 +72,6 @@ class ViewController: UIViewController {
         present(alter, animated: true, completion: nil)
     }
 
-    
     @IBAction func backToLogin(unwindSegue: UIStoryboardSegue){
         password.text = ""
         login.text = ""
