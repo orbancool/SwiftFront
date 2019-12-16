@@ -4,6 +4,7 @@ class UILikeButton: UIButton {
 
     var likeCounts = Int.random(in: 0 ..< 100)
 
+    //func lk() -> () {}
     
     var liked: Bool = false {
         didSet {
@@ -28,7 +29,7 @@ class UILikeButton: UIButton {
     }
     
     func defaultState() {
-        setTitleColor(.white, for: .normal)
+        setTitleColor(.gray, for: .normal)
         setTitle(String(describing: likeCounts), for: .normal)
         setImage(UIImage(named: "loveGray"), for: .normal)
         tintColor = .gray

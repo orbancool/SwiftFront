@@ -1,9 +1,7 @@
-//
-//  GroupCell.swift
-//  SwiftUIApp
-//
-//  Created by Irina Semenova on 12/12/2019.
-//  Copyright © 2019 Denis Semenov. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class GroupCell: UITableViewCell {
+
+    @IBOutlet weak var groupName: UILabel!
+    @IBOutlet weak var groupImage: FriendsImage!
+}

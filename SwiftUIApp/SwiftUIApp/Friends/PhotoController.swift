@@ -9,22 +9,23 @@ class PhotoController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //update()
     }
+    
+    func update() {
+        
+    }
+    
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoCollection.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
-        //cell.loveButton.setLikeCount = Int.random(in: 0 ..< 100)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+
         return cell
     }
-}
-
-class PhotoCell: UICollectionViewCell {
-    @IBOutlet weak var photo: UIImageView!
     
-    @IBOutlet weak var loveButton: UILikeButton!
-
 }
+

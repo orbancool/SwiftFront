@@ -1,9 +1,12 @@
-//
-//  Group.swift
-//  SwiftUIApp
-//
-//  Created by Irina Semenova on 12/12/2019.
-//  Copyright © 2019 Denis Semenov. All rights reserved.
-//
-
 import Foundation
+
+class Group {
+    var name: String
+    var avatar: String
+    
+    init(name: String, avatar: String) {
+        self.name = name
+        self.avatar = avatar
+    }
+    
+}

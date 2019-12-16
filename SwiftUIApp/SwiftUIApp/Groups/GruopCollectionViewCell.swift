@@ -1,9 +1,7 @@
-//
-//  GruopCollectionViewCell.swift
-//  SwiftUIApp
-//
-//  Created by Irina Semenova on 12/12/2019.
-//  Copyright © 2019 Denis Semenov. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class GruopCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var photoInGroup: UIImageView!
+    @IBOutlet weak var loveButton: UILikeButton!
+}
