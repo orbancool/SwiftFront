@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftUIApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="new" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftUIApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,6 +323,25 @@
             </objects>
             <point key="canvasLocation" x="2555" y="-1607"/>
         </scene>
+        <!--Start View Controller-->
+        <scene sceneID="ClV-aG-RjU">
+            <objects>
+                <viewController storyboardIdentifier="start" id="Oe1-IW-Kb2" customClass="StartViewController" customModule="SwiftUIApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R4R-jV-uay">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.47081298599999999" green="0.59481342230000001" blue="0.81710188360000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="JW8-KN-QFL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I7H-5v-3uf"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="start" id="LQg-Up-dha"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYG-Es-2p6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3928.985507246377" y="-1784.5982142857142"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ODW-9X-2Jj">
             <objects>
@@ -331,12 +350,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YqU-Im-p7D"/>
+                        <segue destination="Oe1-IW-Kb2" kind="relationship" relationship="rootViewController" id="gbo-JN-Ljv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkL-Ai-4SC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3371" y="-1607"/>
+            <point key="canvasLocation" x="-4948" y="-1785"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VTS-F4-tmw">

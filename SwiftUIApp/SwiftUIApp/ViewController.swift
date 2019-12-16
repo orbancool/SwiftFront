@@ -29,17 +29,27 @@ class ViewController: UIViewController {
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.height))
         field.leftViewMode = .always
     }
+
+        
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         login.delegate = self
         password.delegate = self
         textFieldBorderStyle(field: login, mask: [.layerMaxXMinYCorner, .layerMinXMinYCorner])
         textFieldBorderStyle(field: password, mask: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
         let hideAction = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(hideAction)
+        
+        
+
     }
+
+
+
     
     @objc func hideKeyboard() {
         view.endEditing(true)
