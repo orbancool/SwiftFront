@@ -6,10 +6,10 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var titleNews: UILabel!
     @IBOutlet weak var timeNews: UILabel!
     @IBOutlet weak var messageNews: UILabel!
+    @IBOutlet weak var detailNewsDots: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

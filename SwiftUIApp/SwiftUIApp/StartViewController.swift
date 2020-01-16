@@ -1,8 +1,32 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let startView = Indicator()
+        startView.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: 100, height: 100))
+        view.addSubview(startView)
+        
+        startView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  = true
+        startView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        startView.translatesAutoresizingMaskIntoConstraints = false
+        startAnimation()
+        
+        }
+    
+    func startAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "new")
+            self.navigationController?.pushViewController(newViewController, animated: false)
+        }
+    }
+}
 
-    @IBOutlet weak var startLabel: UILabel!
+/*class StartViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,11 +97,11 @@ class StartViewController: UIViewController {
     }
 
     func startAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "new")
             self.navigationController?.pushViewController(newViewController, animated: false)
         }
         
     }
-}
+} */

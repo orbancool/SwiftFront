@@ -4,7 +4,7 @@ class UILikeButton: UIButton {
 
     var likeCounts = Int.random(in: 0 ..< 100)
 
-    //func lk() -> () {}
+    var like: ((Bool) -> ())?
     
     var liked: Bool = false {
         didSet {
@@ -46,6 +46,7 @@ class UILikeButton: UIButton {
     }
     
     func setLike() {
+        like?(true)
         pulse()
         setImage(UIImage(named: "loveRed"), for: .normal)
         tintColor = .red
@@ -54,6 +55,7 @@ class UILikeButton: UIButton {
     }
     
     func disLike() {
+        like?(false)
         setImage(UIImage(named: "loveGray"), for: .normal)
         tintColor = .gray
         likeCounts -= 1
@@ -76,7 +78,15 @@ class UILikeButton: UIButton {
         layer.add(pulse, forKey: nil)
     }
 }
-
+extension UILikeButton {
+    
+    func setImageTintColor(_ color: UIColor) {
+        let tintedImage = self.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        self.setImage(tintedImage, for: .normal)
+        self.tintColor = color
+    }
+    
+}
 /*
 extension UILikeButton {
     override func layoutSubviews() {

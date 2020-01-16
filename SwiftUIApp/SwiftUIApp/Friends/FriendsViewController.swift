@@ -1,14 +1,15 @@
 import UIKit
 
-var friendsList: [User] = [User(name: "Denis", secondName: "Semenov", avatar: "msg"),
-                           User(name: "Irina", secondName: "Semenova", avatar: "info"),
-                           User(name: "Denis", secondName: "Semenov", avatar: "msg"),
-                           User(name: "Irina", secondName: "Semenova", avatar: "info"),User(name: "Denis", secondName: "Semenov", avatar: "msg"),
-                           User(name: "Irina", secondName: "Semenova", avatar: "info"),
+
+var friendsList: [User] = [User(name: "Denis", secondName: "Semenov", avatar: "foto08"),
+                           User(name: "Irina", secondName: "Semenova", avatar: "foto07"),
+                           User(name: "Denis", secondName: "Semenov", avatar: "foto06"),
+                           User(name: "Irina", secondName: "Semenova", avatar: "foto05"),User(name: "Denis", secondName: "Semenov", avatar: "foto08"),
+                           User(name: "Irina", secondName: "Semenova", avatar: "foto04"),
                            User(name: "Puf", secondName: "Cat", avatar: "cat"),
-                           User(name: "Aydrei", secondName: "Ivanov", avatar: "msg"),
-                           User(name: "Sasha", secondName: "Petrov", avatar: "info"),
-                           User(name: "Mary", secondName: "Sidorova", avatar: "cat")
+                           User(name: "Aydrei", secondName: "Ivanov", avatar: "foto03"),
+                           User(name: "Sasha", secondName: "Petrov", avatar: "foto02"),
+                           User(name: "Mary", secondName: "Sidorova", avatar: "foto01")
 ]
 
 class FriendsViewController: UITableViewController {
@@ -16,12 +17,26 @@ class FriendsViewController: UITableViewController {
     
     var customRefreshControl = UIRefreshControl()
     var friendsSection = [Section<User>]()
-
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addRefreshControl()
-        friendsSearchBar.placeholder = "Search friends..."
-        friendsSearchBar.delegate = self
+        let color = UIColor(displayP3Red: 0.496, green: 0.591, blue: 0.799, alpha: 1)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search friends..."
+        searchController.searchBar.searchBarStyle = .minimal
+        searchController.searchBar.backgroundColor = .white
+        searchController.searchBar.tintColor = color
+
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         makeSortedSection()
         
     }
@@ -50,11 +65,11 @@ class FriendsViewController: UITableViewController {
         friendsSection = friendsDictionary.map{Section(title: String($0.key), items: $0.value)}
         friendsSection.sort{ $0.title < $1.title }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return friendsSection.count
     }
-
+    
     @IBAction func editAction(_ sender: UIBarButtonItem) {
         self.tableView.isEditing = !self.tableView.isEditing
         sender.title = (self.tableView.isEditing) ? "Done" : "Edit"
@@ -72,22 +87,26 @@ class FriendsViewController: UITableViewController {
     // new delete
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let shareAction = UITableViewRowAction(style: .default, title: "Share") { (action, index) in
-            print("\(action), \(index)")
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, index) in
+            //print("\(action), \(index)")
+            self.friendsSection[indexPath.section].items.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
         }
-        shareAction.backgroundColor = UIColor(red: 0.4, green: 0.3, blue: 0.4, alpha: 1)
+        deleteAction.backgroundColor = UIColor(red: 0.4, green: 0.3, blue: 0.4, alpha: 1)
+        
         
         let forfardAction = UITableViewRowAction(style: .default, title: "Frwrd") { (action, index) in
-            print("\(action), \(index)")
+            //print("\(action), \(index)")
         }
         forfardAction.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.6, alpha: 1)
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
-            print("\(action), \(index)")
+            //print("\(action), \(index)")
         }
         editAction.backgroundColor = UIColor(red: 0.4, green: 0.5, blue: 0.8, alpha: 1)
         
-        return[shareAction, forfardAction, editAction]
+        return[deleteAction, forfardAction, editAction]
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -104,8 +123,7 @@ class FriendsViewController: UITableViewController {
         cell.friendName.text = user.name
         cell.friendSecondName.text = user.secondName
         cell.avatarImage.image = UIImage(named: user.avatar)
-        
-        //cell.backgroundColor = .black
+
         return cell
     }
     
@@ -136,18 +154,15 @@ class FriendsViewController: UITableViewController {
         
         return friendsSection.map { $0.title}
     }
-
+    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor(displayP3Red: 0.496, green: 0.591, blue: 0.799, alpha: 1)
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
         //tableView.backgroundColor = UIColor(displayP3Red: 0.496, green: 0.591, blue: 0.799, alpha: 1)
     }
-
-}
-
-extension FriendsViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    func filterContentForSearchText(_ searchText: String) {
         let friendsDictionary = Dictionary.init(grouping: friendsList.filter{ (user) -> Bool in
             searchText.isEmpty || user.name.lowercased().contains(searchText.lowercased())
         }) {
@@ -157,8 +172,22 @@ extension FriendsViewController: UISearchBarDelegate {
         friendsSection = friendsDictionary.map{Section(title: String($0.key), items: $0.value)}
         friendsSection.sort{ $0.title < $1.title }
         tableView.reloadData()
+        
     }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+    
+}
+
+
+extension FriendsViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+}
+
+extension FriendsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print("scope")
     }
 }

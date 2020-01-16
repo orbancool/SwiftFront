@@ -9,13 +9,9 @@ class GroupCollectioViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //update()
+
     }
-    
-    func update() {
-        
-    }
-    
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoCollection.count
@@ -23,10 +19,18 @@ class GroupCollectioViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GruopCollectionViewCell
+        let num = Int.random(in: 1...8)
+        cell.loveButton.setTitleColor(.white, for: .normal)
+        cell.loveButton.tintColor = .white
+
+        
+        //cell.loveButton.setImageTintColor(.black)
+        //cell.loveButton.dislikeImageColor = .black
+        cell.photoInGroup.image = UIImage(named: "foto0" + String(num))
         
         return cell
     }
-    
+
 }
 
 

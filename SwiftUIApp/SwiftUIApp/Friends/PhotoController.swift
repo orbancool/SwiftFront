@@ -9,12 +9,9 @@ class PhotoController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //update()
+
     }
     
-    func update() {
-        
-    }
     
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -23,9 +20,15 @@ class PhotoController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
+        //likeButton.setTitle("test", for: .normal)
+        let num = Int.random(in: 1...8)
+        cell.photo.image = UIImage(named: "foto0" + String(num))
+        cell.photo.like = {
+            cell.loveButton.doubleTapped()
+        }
 
         return cell
     }
-    
+
 }
 

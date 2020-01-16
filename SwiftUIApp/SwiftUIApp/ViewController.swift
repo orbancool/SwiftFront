@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    let standartAnimation = AnimationTransition()
+    
     let userLogin = "123"
     let userPassword = "123"
     
@@ -62,7 +64,13 @@ class ViewController: UIViewController {
         }
         
         if login.text == userLogin && password.text == userPassword {
-            performSegue(withIdentifier: "user", sender: sender)
+            //performSegue(withIdentifier: "user", sender: sender)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "MainTab")
+            vc.modalPresentationStyle = .custom
+            vc.modalPresentationCapturesStatusBarAppearance = true
+            vc.transitioningDelegate = self
+            present(vc, animated: true, completion: nil)
             return
         } else {
             vibrateEnter()
@@ -85,5 +93,60 @@ class ViewController: UIViewController {
     @IBAction func backToLogin(unwindSegue: UIStoryboardSegue){
         password.text = ""
         login.text = ""
+    }
+}
+
+
+class AnimationTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 1.0
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let source = transitionContext.viewController(forKey: .from),
+              let to     = transitionContext.viewController(forKey: .to) else {
+                return
+        }
+        transitionContext.containerView.addSubview(to.view)
+        to.view.frame = CGRect(x: 0,//transitionContext.containerView.frame.width,
+                               y: transitionContext.containerView.frame.height,
+                               width: source.view.frame.width,
+                               height: source.view.frame.height)
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            source.view.frame = CGRect(x: 0,
+                                       y: -source.view.frame.minY,
+                                       width: source.view.frame.width,
+                                       height: source.view.frame.height)
+            to.view.frame = CGRect(x: 0,
+                                   y: 0,
+                                   width: source.view.frame.width,
+                                   height: source.view.frame.height)
+        }) { isCompleted in
+            transitionContext.completeTransition(isCompleted)
+        }
+        
+        
+        /*UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            source.view.frame = CGRect(x: 0,
+                                       y: -source.view.frame.minY,
+                                       width: source.view.frame.width,
+                                       height: source.view.frame.height)
+            to.view.frame = CGRect(x: 0,
+                                   y: 0,
+                                   width: source.view.frame.width,
+                                   height: source.view.frame.height)
+        }) { isCompleted in
+            transitionContext.completeTransition(isCompleted)
+        }*/
+    }
+    
+    
+}
+
+extension ViewController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return standartAnimation
     }
 }
